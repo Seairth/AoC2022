@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-DIR=./day$1
-CXX_DIR=$DIR/cxx
-OUT_DIR=$DIR/out
+DIR=`dirname $(readlink -f $0)`
+DAY_DIR=$DIR/day$1
+
+CXX_DIR=$DAY_DIR/cxx
+OUT_DIR=$DAY_DIR/out
 
 FILE_ROOT=puzzle
 
-if [ -d $DIR ]; then
+if [ -d $DAY_DIR ]; then
     if [ -d $CXX_DIR ]; then
         mkdir -p $OUT_DIR
         
@@ -15,7 +17,7 @@ if [ -d $DIR ]; then
             OUT_FILE=$OUT_DIR/$FILE_ROOT$i
 
             if [ -f $IN_FILE.cxx ]; then
-                clang++ -Wall -g -std=c++17 -stdlib=libstdc++ -I ./include/ $IN_FILE.cxx -o $OUT_FILE
+                clang++ -Wall -g -std=c++17 -stdlib=libstdc++ -I $DIR/include/ $IN_FILE.cxx -o $OUT_FILE
             else
                 echo $IN_FILE.cxx does not exist
             fi
@@ -24,5 +26,5 @@ if [ -d $DIR ]; then
         echo $CXX_DIR does not exist
     fi
 else
-    echo $DIR does not exist
+    echo $DAY_DIR does not exist
 fi
