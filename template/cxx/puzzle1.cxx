@@ -8,7 +8,7 @@
 
 using namespace std;
 
-const uint32_t solve()
+const auto solve()
 {
     ifstream f{"../input.txt"};
 
