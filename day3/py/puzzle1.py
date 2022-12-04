@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import itertools
+
 from util import get_priority
 
 def solve():
@@ -12,8 +14,8 @@ def solve():
 
             num_items = int(len(line)/2)
             
-            comp_1 = line[:num_items]
-            comp_2 = line[num_items:]
+            comp_1 = itertools.islice(line, 0, num_items)
+            comp_2 = itertools.islice(line, num_items, None)
 
             common = set(comp_1).intersection(set(comp_2)).pop()
 

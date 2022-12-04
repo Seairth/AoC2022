@@ -22,11 +22,8 @@ const auto solve()
 
         auto num_items = items.length() / 2;
 
-        auto comp_1 = items.substr(0, num_items);
-        auto comp_2 = items.substr(num_items);
-
-        set<char> comp_1_set{comp_1.begin(), comp_1.end()};
-        set<char> comp_2_set{comp_2.begin(), comp_2.end()};
+        set<char> comp_1_set{items.begin(), items.begin() + num_items};
+        set<char> comp_2_set{items.begin() + num_items, items.end()};
 
         vector<char> common(items.length());
 
