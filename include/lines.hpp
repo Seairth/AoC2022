@@ -41,14 +41,14 @@ struct line_iterator {
 
  private:
   std::istream* input_;
-  std::string s_;
+  value_type s_;
 };
 
 struct lines {
   lines(std::istream& input): input_(input) {}
 
-  line_iterator begin() const { return line_iterator(input_); }
-  line_iterator end() const { return line_iterator(); }
+  auto begin() const { return line_iterator(input_); }
+  auto end() const { return line_iterator(); }
 
  private:
   std::istream& input_;

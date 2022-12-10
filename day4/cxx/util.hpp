@@ -5,22 +5,10 @@
 #include<string>
 #include<tuple>
 
+#include<_atoi.hpp>
+
 typedef std::tuple<uint32_t, uint16_t> range;
 typedef std::tuple<range, range> range_pair;
-
-uint32_t _atoi(std::string::const_iterator begin, const std::string::const_iterator& end)
-{
-    auto val = 0u;
-
-    while (begin != end )
-    {
-        val = (val * 10) + (*begin - '0');
-        begin++;
-    }
-
-    return val;
-}
-
 
 const range_pair get_range_pair(const std::string& line)
 {

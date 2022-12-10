@@ -11,5 +11,5 @@ def solve():
 
 if __name__ == "__main__":
     solution = solve()
-    print(solution, )
+    print(solution)
 
